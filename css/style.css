@@ -88,6 +88,8 @@ main {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 250px 250px 250px;
   grid-template-areas: "card1 card2 card3"; }
+  main .card {
+    grid-area: card1; }
 
 footer {
   grid-area: footer;
