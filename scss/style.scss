@@ -1,0 +1,72 @@
+@import 'reset';
+
+body{
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px auto 40px;
+    grid-template-areas: 
+        "header" 
+        "main"
+        "footer";
+}
+
+header{
+    grid-area: header;
+    padding: 20px 50px;
+    background-color: #FF8360;
+    // height: 30px;
+    .header-cont{
+        display: grid;
+        // align-items: center;
+        grid-template-areas: "logo nav-links nav-links";       
+            
+        .logo{
+            grid-area: logo;
+            color: black;
+            font-weight: bold;
+            font-size: 1.2em;   
+            .icon{
+                display: inline-block;
+                background-image: url("../assets/beer.png");
+                height: 16px;
+                width: 16px;
+            }
+        }
+        .main-nav{
+            grid-area: nav-links;
+            justify-self: end;
+
+            .nav-links{
+                display: flex;
+                flex-direction: row;
+                li{
+                    margin-left: 30px;
+                    color: black;
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+    
+}
+
+main{
+    grid-area: main;
+
+    padding: 30px 70px; 
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 250px 250px 250px;
+    grid-template-areas: 
+        "card1 card2 card3";
+}
+
+footer{
+    grid-area: footer;
+
+    text-align: center;
+    background-color: #E8E288;
+}
