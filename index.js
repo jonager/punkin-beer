@@ -11,7 +11,7 @@ function getLiquor(query){
     if(!query){
         return;
     }
-    let url = `http://lcboapi.com/products?per_page=12&q=${query}`
+    let url = `https://lcboapi.com/products?per_page=12&q=${query}`
     fetch(url, {headers:{Authorization: 'Token MDpkNDU2MDIyYS1mYWRkLTExZTctYTFiNC1kM2RmZmI1YzBjNTM6dmU4SmQ2VE96aWtZN09yRnZrNW84VE5yNlZjQVQ2YTRIQlhw'}}) // Call the fetch function passing the url of the API as a parameter
         .then((resp) => resp.json())
         .then(function(data) {
@@ -53,7 +53,7 @@ function addClickEvent(){
     let stars = document.getElementsByClassName('star');    
     for (let i = 0; i < stars.length; i++) {
         stars[i].addEventListener('click', toggleFav);
-    }
+    }   
 }
 function addSubmitEvent(){
     let searchForm = document.querySelector('#search');
@@ -62,7 +62,7 @@ function addSubmitEvent(){
         console.log(e.target.search.value);
         getLiquor(e.target.search.value);
         setTimeout(addClickEvent, 1000);       
-    },true);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
