@@ -49,7 +49,7 @@ body {
   font-family: 'Roboto', sans-serif;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 60px auto 40px;
+  grid-template-rows: 70px auto auto;
   grid-template-areas: "header"  "main" "footer"; }
 
 .addFav {
@@ -58,11 +58,12 @@ body {
 
 header {
   grid-area: header;
-  padding: 20px 50px;
   background-color: #FF8360; }
   header .header-cont {
+    padding: 20px 50px;
     display: grid;
-    grid-template-areas: "logo nav-links nav-links"; }
+    grid-template-areas: "logo nav-links nav-links";
+    align-items: center; }
     header .header-cont .logo {
       grid-area: logo;
       color: black;
@@ -89,11 +90,28 @@ header {
   padding: 50px 150px;
   display: grid;
   grid-gap: 15px;
-  grid-template-columns: 345px 345px 345px;
-  grid-template-rows: 200px 200px 200px;
-  grid-template-areas: "card1 card2 card3"; }
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "card card card"; }
+  .beers .search {
+    grid-area: 1/1/1/4;
+    justify-self: center; }
+    .beers .search input:first-child {
+      width: 500px;
+      height: 30px;
+      font-size: 1.2em;
+      color: #3CDBD3; }
+    .beers .search input::placeholder {
+      color: #3CDBD3;
+      font-size: .8em; }
+    .beers .search input:last-child {
+      width: 150px;
+      height: 36px;
+      font-size: 1.2em;
+      background-color: #7DCE82;
+      color: rgba(0, 0, 0, 0.7);
+      border: none; }
   .beers .card {
-    grid-area: card1;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -123,4 +141,8 @@ header {
 footer {
   grid-area: footer;
   text-align: center;
-  background-color: #E8E288; }
+  background-color: #E8E288;
+  align-self: center;
+  padding: 20px 0; }
+  footer a {
+    color: black; }
