@@ -84,65 +84,67 @@ header {
           margin-left: 30px;
           color: black; }
 
-.beers {
+.liquor {
   grid-area: main;
   justify-content: center;
   padding: 50px 150px;
   display: grid;
-  grid-gap: 15px;
+  grid-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto;
   grid-template-areas: "card card card"; }
-  .beers .search {
+  .liquor #search {
     grid-area: 1/1/1/4;
-    justify-self: center; }
-    .beers .search input:first-child {
+    justify-self: center;
+    margin-bottom: 20px; }
+    .liquor #search input:first-child {
       width: 500px;
       height: 30px;
       font-size: 1.2em;
-      color: #3CDBD3; }
-    .beers .search input::placeholder {
+      color: #3CDBD3;
+      padding-left: 3px; }
+    .liquor #search input::placeholder {
       color: #3CDBD3;
       font-size: .8em; }
-    .beers .search input:last-child {
+    .liquor #search input:last-child {
       width: 150px;
       height: 36px;
       font-size: 1.2em;
       background-color: #7DCE82;
       color: rgba(0, 0, 0, 0.7);
       border: none; }
-  .beers .card {
+  .liquor .card {
     display: flex;
     flex-direction: row;
     align-items: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s; }
-    .beers .card .beer-img {
+    .liquor .card .beer-img {
       width: 180px;
       height: 180px; }
-    .beers .card .info {
+    .liquor .card .info {
       padding: 8px 12px;
       padding-left: 0;
       padding-top: 4px;
       text-align: right; }
-      .beers .card .info i {
+      .liquor .card .info i {
         opacity: 0.5; }
-      .beers .card .info h4 {
+      .liquor .card .info h4 {
         margin-bottom: 8px;
         font-weight: bold;
         font-size: 1.2em;
         text-align: left; }
-      .beers .card .info p {
+      .liquor .card .info p {
         text-align: left;
         font-size: 0.9em; }
-  .beers .card:hover {
+  .liquor .card:hover {
     box-shadow: 0 8px 16px 0 rgba(60, 219, 211, 0.5); }
 
 footer {
   grid-area: footer;
   text-align: center;
   background-color: #E8E288;
-  align-self: center;
+  align-self: end;
   padding: 20px 0; }
   footer a {
     color: black; }

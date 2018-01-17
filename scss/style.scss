@@ -58,28 +58,31 @@ header{
     
 }
 
-.beers{
+.liquor{
     grid-area: main;
     justify-content: center;
 
     padding: 50px 150px; 
     display: grid;
-    grid-gap: 15px;
+    grid-gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto auto;
     grid-template-areas: 
         "card card card";
 
-    .search{
+    #search{
         grid-area: 1/1/1/4 ;
         justify-self: center;
+        margin-bottom: 20px;
         
         input:first-child{
             
             width: 500px;
             height: 30px;
             font-size: 1.2em;
-            color: #3CDBD3;            
+            color: #3CDBD3;   
+            padding-left: 3px;
+                     
         }
         input::placeholder{
             color: #3CDBD3;
@@ -137,7 +140,7 @@ footer{
 
     text-align: center;
     background-color: #E8E288;
-    align-self: center;
+    align-self: end;
     padding: 20px 0;
 
     a{
