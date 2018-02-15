@@ -28,7 +28,6 @@ header{
         // align-items: center;
         grid-template-areas: "logo nav-links nav-links";       
         align-items: center;
-            
         .logo{
             grid-area: logo;
             color: black;
@@ -58,20 +57,20 @@ header{
     
 }
 
-.liquor{
+.main{
     grid-area: main;
     justify-content: center;
 
     padding: 50px 150px; 
     display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     grid-template-areas: 
-        "card card card";
+        "search"
+        "liquor";
 
     #search{
-        grid-area: 1/1/1/4 ;
+        grid-area:search;
         justify-self: center;
         margin-bottom: 20px;
         
@@ -97,41 +96,50 @@ header{
             border: none;
         }
     }
-    .card{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+
+    .liquor{
+        grid-area: liquor;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 15px;
         
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        transition: 0.3s;
-
-        .beer-img{
-            width: 180px;
-            height: 180px;
+        .card{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+    
+            .beer-img{
+                width: 180px;
+                height: 180px;
+            }
+    
+            .info{
+                padding: 8px 12px;
+                padding-left: 0;
+                padding-top: 4px;
+                text-align: right;
+                i{
+                    opacity: 0.5;
+                }
+                h4{
+                    margin-bottom: 8px;
+                    font-weight: bold;
+                    font-size: 1.2em;
+                    text-align: left;
+                }
+                p{
+                    text-align: left;
+                    font-size: 0.9em;
+                }
+            }
         }
-
-        .info{
-            padding: 8px 12px;
-            padding-left: 0;
-            padding-top: 4px;
-            text-align: right;
-            i{
-                opacity: 0.5;
-            }
-            h4{
-                margin-bottom: 8px;
-                font-weight: bold;
-                font-size: 1.2em;
-                text-align: left;
-            }
-            p{
-                text-align: left;
-                font-size: 0.9em;
-            }
+        .card:hover {
+            box-shadow: 0 8px    16px 0 rgba(60,219,211,0.5);
         }
-    }
-    .card:hover {
-        box-shadow: 0 8px    16px 0 rgba(60,219,211,0.5);
     }
 }
 

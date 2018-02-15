@@ -1,4 +1,3 @@
-
 'use strict';
 // will hold all the favorites beers in the "db"
 let favorites = {};
@@ -6,6 +5,20 @@ let favorites = {};
 // let wine = "http://lcboapi.com/products?per_page=12&q=wine";
 // let beer = "http://lcboapi.com/products?per_page=12&q=beer";
 
+function formForBAC(){
+    //todo: process form data to use in bacCalculator
+}
+
+function bacCalculator(weight_pounds, gender, perc_alch, serving_ounce, met_rate){
+    let weight_kilo = weight_pounds / 2.2046;
+    let body_water =  ((gender == 'male') ? weight_kilo*.58 : weight_kilo*.49)*1000;
+    let grams_alco_per_water = (29.57*.79)/body_water;
+    let grams_alcho_per_blood = (grams_alco_per_water*.806)*100;
+    let alco_comsumed = perc_alch*(serving_ounce/100);      
+    let bac =   grams_alcho_per_blood*alco_comsumed - met_rate;
+
+    return Math.round(bac*100)/100;
+}
 
 function getLiquor(query){
     if(!query){
@@ -17,6 +30,7 @@ function getLiquor(query){
         .then(function(data) {
             // Your code for handling the data you get from the API
             let container = document.querySelector('.liquor');
+            container.innerHTML = '';
             let result = data.result;
             // console.log(data.result);
             for (let i = 0; i < result.length; i++) {
@@ -47,6 +61,7 @@ function toggleFav(){
         this.style.opacity = '1';
         favorites[beer_id] = beer_id;
     }
+    console.log(favorites);
 }
 
 function addClickEvent(){
@@ -59,17 +74,14 @@ function addSubmitEvent(){
     let searchForm = document.querySelector('#search');
     searchForm.addEventListener('submit', function(e){
         e.preventDefault();
-        console.log(e.target.search.value);
         getLiquor(e.target.search.value);
         setTimeout(addClickEvent, 1000);       
     });
 }
+// Event listener for input in searchbar delayed by 3000
 
 document.addEventListener('DOMContentLoaded', function() {
-    // getLiquor('beer');
-    // setTimeout(addSubmitEvent, 1000);
-    addSubmitEvent();
-    // setTimeout(addClickEvent, 1000);
-    
+    getLiquor('beer');
+    addSubmitEvent();    
 });
 
