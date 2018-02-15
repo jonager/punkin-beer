@@ -45,6 +45,9 @@ function getLiquor(query){
                 </div>`;   
             }
         })
+        .then(function(){
+            addClickEvent();
+        })
         .catch(function() {
             // This is where you run code if the server returns any errors
         });
@@ -61,7 +64,7 @@ function toggleFav(){
         this.style.opacity = '1';
         favorites[beer_id] = beer_id;
     }
-    console.log(favorites);
+    // console.log(favorites);
 }
 
 function addClickEvent(){
@@ -70,18 +73,18 @@ function addClickEvent(){
         stars[i].addEventListener('click', toggleFav);
     }   
 }
+
 function addSubmitEvent(){
     let searchForm = document.querySelector('#search');
     searchForm.addEventListener('submit', function(e){
         e.preventDefault();
-        getLiquor(e.target.search.value);
-        setTimeout(addClickEvent, 1000);       
+        getLiquor(e.target.search.value);       
     });
 }
 // Event listener for input in searchbar delayed by 3000
 
 document.addEventListener('DOMContentLoaded', function() {
     getLiquor('beer');
-    addSubmitEvent();    
+    addSubmitEvent() 
 });
 
