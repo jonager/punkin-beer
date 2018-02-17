@@ -60,7 +60,7 @@ header {
   grid-area: header;
   background-color: #FF8360; }
   header .header-cont {
-    padding: 20px 50px;
+    padding: 0 50px;
     display: grid;
     grid-template-areas: "logo nav-links nav-links";
     align-items: center; }
@@ -76,13 +76,19 @@ header {
         width: 16px; }
     header .header-cont .main-nav {
       grid-area: nav-links;
-      justify-self: end; }
+      justify-self: end;
+      line-height: 66px; }
       header .header-cont .main-nav .nav-links {
         display: flex;
         flex-direction: row; }
         header .header-cont .main-nav .nav-links li {
+          box-sizing: border-box;
           margin-left: 30px;
-          color: black; }
+          color: black;
+          font-size: 1.2em; }
+        header .header-cont .main-nav .nav-links li:hover {
+          color: white;
+          border-bottom: #7DCE82 4px inset; }
 
 .main {
   grid-area: main;
