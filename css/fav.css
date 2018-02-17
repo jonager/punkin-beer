@@ -1,0 +1,33 @@
+.main {
+  grid-area: main;
+  justify-content: center;
+  padding: 50px 150px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "favs"; }
+  .main .favs {
+    grid-area: favs;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 30px; }
+    .main .favs .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s; }
+      .main .favs .card .beer-img {
+        width: 180px;
+        height: 180px; }
+      .main .favs .card .info {
+        padding-top: 4px;
+        text-align: center; }
+        .main .favs .card .info h4 {
+          margin-bottom: 8px;
+          font-weight: bold;
+          font-size: 1.2em;
+          text-align: left; }
+    .main .favs .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(60, 219, 211, 0.5); }
