@@ -1,10 +1,36 @@
 'use strict';
+// Todo: refactor addclickEvent functions into one
 // will hold all the favorites beers in the "db"
 let favorites = {};
 
 // function formForBAC(){
-//     //todo: process form data to use in bacCalculator
-// }
+    //     //todo: process form data to use in bacCalculator
+    // }
+    
+function displayModal(){
+
+    let modal = document.querySelector('#myModal');
+    let span = document.querySelector(".close");
+
+    (function addBacButtons(){
+        let btns = document.querySelectorAll('#getBAC');    
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function() {
+                modal.style.display = "block";
+            });
+        }   
+    })();
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
 
 function bacCalculator(weight_pounds, gender, perc_alch, serving_ounce, met_rate){
     let weight_kilo = weight_pounds / 2.2046;
@@ -42,14 +68,16 @@ function getLiquors(query){
                     <img class="beer-img" src="${result[i].image_url}" alt="Avatar">
                     <div class="info">
                         <i class="material-icons star" id="${result[i].id}">star_border</i>
-                        <h4>${result[i].name}</h4> 
+                        <h4>${result[i].name} (${result[i].alcohol_content/100}%)</h4> 
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint obcaecati unde quam magnam reprehenderit quod et deleniti provident sapiente sit,quod et deleniti provident sapiente sit.    ?</p> 
+                        <button id="getBAC">Calculate BAC</button>
                     </div>
                 </div>`;   
             }
         })
         .then(function(){
             addClickEvent();
+            displayModal();
         })
         .catch(function() {
             // This is where you run code if the server returns any errors
@@ -65,7 +93,7 @@ function getLiquor(id){
         let container = document.querySelector('.favs');    
 
         container.innerHTML +=
-        `<div class="card">
+        `<div class="card" data-alco-content="${result.alcohol_content/100}">
             <img class="beer-img" src="${result.image_url}" alt="Avatar">
             <div class="info">
                 <h4>${result.name} (${result.alcohol_content/100}%)</h4> 

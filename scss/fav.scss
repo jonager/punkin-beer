@@ -4,11 +4,20 @@
 
     padding: 50px 150px; 
     display: grid;
+    grid-gap: 0px;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     grid-template-areas: 
+        "heading"
         "favs";
 
+    .heading{
+        grid-area: heading;
+
+        font-weight: bold;
+        font-size: 2.5em;
+        text-align: center;
+    }
     .favs{
         grid-area: favs;
         display: grid;
