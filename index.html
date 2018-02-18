@@ -18,7 +18,7 @@
             <nav class="main-nav">
                 <ul class="nav-links">
                     <a href="">
-                        <li>Drinking Calfirstnameculator</li>
+                        <li>Drinking Calculator</li>
                     </a>
                     <a href="http://127.0.0.1:5500/favorites.html">
                         <li>Favorites</li>
@@ -31,7 +31,7 @@
     <main class="main">
             <form id="search">
                 <input name="search" class="query" type="text" placeholder="Choose your poison ...">
-                <input type="submit" value="Submit" id="submitSearch">
+                <input type="submit" value="Submit">
             </form>
             <section class="liquor"></section>
     </main>
@@ -41,15 +41,23 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>BAC Calculator</h2>
-            <form action="">
+            <form id="BACform">
                 <label for="">Weight:
-                    <input type="text" name="firstname">
+                    <input type="text" name="weight">
                 </label><br>
 
-                <label for="">Weight:
+                <label for="">Gender:
                     <select name="gender">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
+                    </select>
+                </label><br>
+                
+                <label for="">Type of drinker:
+                    <select name="meta_rate">
+                        <option value="0.012">Social</option>
+                        <option value="0.017">Frequent</option>
+                        <option value="0.02">Heavy</option>
                     </select>
                 </label><br>
 
@@ -68,7 +76,7 @@
                     <input type="text" name="servings">
                 </label><br>
 
-                <input type="submit" value="Submit" id="submitBAC">
+                <input type="submit" value="Submit">
             </form>
         </div>  
     </div>
