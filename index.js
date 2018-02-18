@@ -33,6 +33,7 @@ function displayModal(){
 }
 
 function bacCalculator(weight_pounds, gender, perc_alch, serving_ounce, met_rate){
+    // Todo: take time into account for calculating bac.
     let weight_kilo = weight_pounds / 2.2046;
     let body_water =  ((gender == 'male') ? weight_kilo*.58 : weight_kilo*.49)*1000;
     let grams_alco_per_water = (29.57*.79)/body_water;
@@ -126,11 +127,28 @@ function addClickEvent(){
     }   
 }
 
-function addSubmitEvent(){
+function addSubmitEventSearch(){
     let searchForm = document.querySelector('#search');
-    searchForm.addEventListener('submitSearch', function(e){
+
+    searchForm.addEventListener('submit', function(e){
         e.preventDefault();
         getLiquors(e.target.search.value);       
+    });
+}
+
+function addSubmitEventBAC(){
+    let formBAC = document.querySelector('#BACform');
+    
+    formBAC.addEventListener('submit', function(e){
+        e.preventDefault();  
+        let weight = e.target.weight.value;
+        let gender = e.target.gender.value;
+        let meta_rate = e.target.meta_rate.value;
+        // let hours= e.target.hour.value;
+        // let mins = e.target.min.value;
+        let percent = e.target.percent.value;
+        let servings = e.target.servings.value;        // getLiquors(e.target.search.value);
+        console.log(bacCalculator(weight, gender, percent , servings, meta_rate));
     });
 }
 //TODO: Event listener for input in searchbar delayed by 3000
@@ -138,7 +156,8 @@ function addSubmitEvent(){
 document.addEventListener('DOMContentLoaded', function() {
     if(document.querySelector('.liquor')){
         getLiquors('beer');
-        addSubmitEvent() 
+        addSubmitEventSearch(); 
+        addSubmitEventBAC();
     }
 
     if(document.querySelector('.favs')){
