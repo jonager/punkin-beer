@@ -18,7 +18,7 @@
             <nav class="main-nav">
                 <ul class="nav-links">
                     <a href="">
-                        <li>Drinking Calculator</li>
+                        <li>Drinking Calfirstnameculator</li>
                     </a>
                     <a href="http://127.0.0.1:5500/favorites.html">
                         <li>Favorites</li>
@@ -31,19 +31,46 @@
     <main class="main">
             <form id="search">
                 <input name="search" class="query" type="text" placeholder="Choose your poison ...">
-                <input type="submit" value="Submit" id="submit">
+                <input type="submit" value="Submit" id="submitSearch">
             </form>
             <section class="liquor"></section>
     </main>
 
     <div id="myModal" class="modal">
-
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
-        </div>
-        
+            <h2>BAC Calculator</h2>
+            <form action="">
+                <label for="">Weight:
+                    <input type="text" name="firstname">
+                </label><br>
+
+                <label for="">Weight:
+                    <select name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </label><br>
+
+                 <label for="">Hour:
+                    <input type="text" name="hour">
+                </label>
+                 <label for="">Min:
+                    <input type="text" name="min">
+                </label><br>
+
+                <label for="">Alcohol %:
+                    <input type="text" name="percent">
+                </label><br>
+
+                <label for="">Servings(oz):
+                    <input type="text" name="servings">
+                </label><br>
+
+                <input type="submit" value="Submit" id="submitBAC">
+            </form>
+        </div>  
     </div>
     
     
