@@ -128,7 +128,7 @@ function addClickEvent(){
 
 function addSubmitEvent(){
     let searchForm = document.querySelector('#search');
-    searchForm.addEventListener('submit', function(e){
+    searchForm.addEventListener('submitSearch', function(e){
         e.preventDefault();
         getLiquors(e.target.search.value);       
     });
