@@ -17,6 +17,12 @@ function displayModal(){
         for (let i = 0; i < btns.length; i++) {
             btns[i].addEventListener('click', function() {
                 modal.style.display = "block";
+                let fav_icon = this.parentElement.firstElementChild;
+                let beer_id = fav_icon.getAttribute('id');
+                if (beer_id) {
+                    let percent_input = document.querySelector('#percent');
+                    percent_input.setAttribute('value',this.getAttribute('data-percent'));
+                }
             });
         }   
     })();
@@ -71,7 +77,7 @@ function getLiquors(query){
                         <i class="material-icons star" id="${result[i].id}">star_border</i>
                         <h4>${result[i].name} (${result[i].alcohol_content/100}%)</h4> 
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint obcaecati unde quam magnam reprehenderit quod et deleniti provident sapiente sit,quod et deleniti provident sapiente sit.    ?</p> 
-                        <button id="getBAC">Calculate BAC</button>
+                        <button id="getBAC" data-percent="${result[i].alcohol_content/100}">Calculate BAC</button>
                     </div>
                 </div>`;   
             }
@@ -148,7 +154,7 @@ function addSubmitEventBAC(){
         // let mins = e.target.min.value;
         let percent = e.target.percent.value;
         let servings = e.target.servings.value;        // getLiquors(e.target.search.value);
-        console.log(bacCalculator(weight, gender, percent , servings, meta_rate));
+        bacCalculator(weight, gender, percent , servings, meta_rate);
     });
 }
 //TODO: Event listener for input in searchbar delayed by 3000
