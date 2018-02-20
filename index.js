@@ -11,17 +11,19 @@ function displayModal(){
 
     let modal = document.querySelector('#myModal');
     let span = document.querySelector(".close");
+    let btns = document.querySelectorAll('.getBAC'); 
 
     (function addBacButtons(){
-        let btns = document.querySelectorAll('#getBAC');    
+        let btns = document.querySelectorAll('.getBAC');    
         for (let i = 0; i < btns.length; i++) {
             btns[i].addEventListener('click', function() {
                 modal.style.display = "block";
                 let fav_icon = this.parentElement.firstElementChild;
                 let beer_id = fav_icon.getAttribute('id');
+                console.log(beer_id);
                 if (beer_id) {
                     let percent_input = document.querySelector('#percent');
-                    percent_input.setAttribute('value',this.getAttribute('data-percent'));
+                    percent_input.setAttribute('value', this.getAttribute('data-percent'));
                 }
             });
         }   
@@ -77,7 +79,7 @@ function getLiquors(query){
                         <i class="material-icons star" id="${result[i].id}">star_border</i>
                         <h4>${result[i].name} (${result[i].alcohol_content/100}%)</h4> 
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint obcaecati unde quam magnam reprehenderit quod et deleniti provident sapiente sit,quod et deleniti provident sapiente sit.    ?</p> 
-                        <button id="getBAC" data-percent="${result[i].alcohol_content/100}">Calculate BAC</button>
+                        <button class="getBAC" data-percent="${result[i].alcohol_content/100}">Calculate BAC</button>
                     </div>
                 </div>`;   
             }
@@ -97,15 +99,20 @@ function getLiquor(id){
     .then((resp) => resp.json())
     .then(function(data) {
         let result = data.result;
-        let container = document.querySelector('.favs');    
+        let container = document.querySelector('.favs');   
 
         container.innerHTML +=
         `<div class="card" data-alco-content="${result.alcohol_content/100}">
             <img class="beer-img" src="${result.image_url}" alt="Avatar">
             <div class="info">
+                <i style="display:none" star" id="${result.id}"></i>
                 <h4>${result.name} (${result.alcohol_content/100}%)</h4> 
+                <button class="getBAC" data-percent="${result.alcohol_content/100}">Calculate BAC</button>
             </div>
         </div>`;   
+        })
+        .then(function(){
+            displayModal();
         })
         .catch(function() {
             // This is where you run code if the server returns any errors
