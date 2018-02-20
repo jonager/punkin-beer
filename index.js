@@ -1,14 +1,10 @@
 'use strict';
 // Todo: refactor addclickEvent functions into one
-// will hold all the favorites beers in the "db"
-let favorites = {};
 
-// function formForBAC(){
-    //     //todo: process form data to use in bacCalculator
-    // }
+// will hold all the favorites beers in the local storage.
+let favorites = {};
     
 function displayModal(){
-
     let modal = document.querySelector('#myModal');
     let span = document.querySelector(".close");
     let btns = document.querySelectorAll('.getBAC'); 
@@ -20,7 +16,6 @@ function displayModal(){
                 modal.style.display = "block";
                 let fav_icon = this.parentElement.firstElementChild;
                 let beer_id = fav_icon.getAttribute('id');
-                console.log(beer_id);
                 if (beer_id) {
                     let percent_input = document.querySelector('#percent');
                     percent_input.setAttribute('value', this.getAttribute('data-percent'));
@@ -28,6 +23,22 @@ function displayModal(){
             });
         }   
     })();
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+function displayModalLink(){
+    let modal = document.querySelector('#myModal');
+    let span = document.querySelector(".close");
+    modal.style.display = "block";
 
     span.onclick = function() {
         modal.style.display = "none";
@@ -140,6 +151,14 @@ function addClickEvent(){
     }   
 }
 
+function addClickEventLinkBAC(){
+    let link = document.querySelector('#linkBAC');   
+    link.addEventListener('click', function(e){
+        e.preventDefault();
+        displayModalLink();
+    }); 
+}
+
 function addSubmitEventSearch(){
     let searchForm = document.querySelector('#search');
 
@@ -167,6 +186,7 @@ function addSubmitEventBAC(){
 //TODO: Event listener for input in searchbar delayed by 3000
 
 document.addEventListener('DOMContentLoaded', function() {
+    addClickEventLinkBAC();
     if(document.querySelector('.liquor')){
         getLiquors('beer');
         addSubmitEventSearch(); 

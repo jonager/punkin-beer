@@ -37,3 +37,14 @@
           text-align: left; }
     .main .favs .card:hover {
       box-shadow: 0 8px 16px 0 rgba(60, 219, 211, 0.5); }
+    .main .favs button {
+      text-align: center;
+      margin-top: 10px;
+      color: red;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 5px; }
+    .main .favs button:hover {
+      box-shadow: 0 3px 6px 0 rgba(220, 0, 0, 0.7);
+      color: black; }

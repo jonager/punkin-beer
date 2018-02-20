@@ -16,8 +16,8 @@
         <div class="header-cont">
             <a href="http://127.0.0.1:5500/index.html" class="logo">Punkin' <span class="icon"></span> Beer</a>
             <nav class="main-nav">
-                <ul class="nav-links">
-                    <a href="">
+                <ul class="nav-links"> 
+                    <a href="" id="linkBAC">
                         <li>Drinking Calculator</li>
                     </a>
                     <a href="http://127.0.0.1:5500/favorites.html">
@@ -41,7 +41,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>BAC Calculator</h2>
-            <form id="BACform">
+            <form id="BACform" action="http://127.0.0.1:5500/index.html" method="get">
                 <label for="">Weight:
                     <input type="text" name="weight">
                 </label><br>
@@ -76,7 +76,7 @@
                     <input type="text" name="servings">
                 </label><br>
 
-                <input type="submit" value="Submit" id="submitBAC"
+                <input type="submit" value="Submit">
             </form>
         </div>  
     </div>
