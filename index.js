@@ -180,7 +180,15 @@ function addSubmitEventBAC(){
         // let mins = e.target.min.value;
         let percent = e.target.percent.value;
         let servings = e.target.servings.value;        // getLiquors(e.target.search.value);
-        bacCalculator(weight, gender, percent , servings, meta_rate);
+        let bac = bacCalculator(weight, gender, percent , servings, meta_rate);
+        if(bac){
+            let modal_content = document.querySelector('.modal-content');
+            modal_content.innerHTML +=
+            `<p>Your blood alcohol concentration(BAC) is ${bac}</P>`;
+        }
+
+ 
+        
     });
 }
 //TODO: Event listener for input in searchbar delayed by 3000

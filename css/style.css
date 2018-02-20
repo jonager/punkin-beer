@@ -200,6 +200,7 @@ header {
       cursor: pointer; }
     .modal .modal-content form {
       margin-top: 15px;
+      margin-bottom: 20px;
       display: flex; }
 
 footer {
