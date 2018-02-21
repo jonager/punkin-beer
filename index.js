@@ -51,9 +51,9 @@ function displayModalLink(){
     }
 }
 
-function bacCalculator(weight_pounds, gender, perc_alch, serving_ounce, met_rate){
+function bacCalculator(weight, weight_unit, gender, perc_alch, serving_ounce, met_rate){
     // Todo: take time into account for calculating bac.
-    let weight_kilo = weight_pounds / 2.2046;
+    let weight_kilo = (weight_unit == 'lbs') ? weight / 2.2046 : weight;
     let body_water =  ((gender == 'male') ? weight_kilo*.58 : weight_kilo*.49)*1000;
     let grams_alco_per_water = (29.57*.79)/body_water;
     let grams_alcho_per_blood = (grams_alco_per_water*.806)*100;
@@ -174,17 +174,18 @@ function addSubmitEventBAC(){
     formBAC.addEventListener('submit', function(e){
         e.preventDefault();  
         let weight = e.target.weight.value;
+        let weight_unit =  e.target.unit.value;
         let gender = e.target.gender.value;
         let meta_rate = e.target.meta_rate.value;
         // let hours= e.target.hour.value;
         // let mins = e.target.min.value;
         let percent = e.target.percent.value;
         let servings = e.target.servings.value;        // getLiquors(e.target.search.value);
-        let bac = bacCalculator(weight, gender, percent , servings, meta_rate);
+        let bac = bacCalculator(weight, weight_unit, gender, percent , servings, meta_rate);
         if(bac){
             let modal_content = document.querySelector('.modal-content');
             modal_content.innerHTML +=
-            `<p>Your blood alcohol concentration(BAC) is ${bac}</P>`;
+            `<p>Your blood alcohol concentration (BAC) is ${bac}</P>`;
         }
 
  
