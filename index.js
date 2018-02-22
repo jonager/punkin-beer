@@ -94,14 +94,12 @@ function getLiquors(query){
                     </div>
                 </div>`;   
             }
-        })
-        .then(function(){
-            addClickEvent();
-            displayModal();
-        })
-        .catch(function() {
-            // This is where you run code if the server returns any errors
-        });
+    })
+    .then(function(){
+        addClickEvent();
+        displayModal();
+    })
+    
 }
 
 function getLiquor(id){
@@ -124,10 +122,36 @@ function getLiquor(id){
         })
         .then(function(){
             displayModal();
-        })
-        .catch(function() {
-            // This is where you run code if the server returns any errors
-        });
+    })
+}
+
+function dropDownAutocomplete(query){
+    if(!query){
+        return;
+    }
+    let url = `https://lcboapi.com/products?per_page=12&q=${query}`
+    fetch(url, {headers:{Authorization: 'Token MDpkNDU2MDIyYS1mYWRkLTExZTctYTFiNC1kM2RmZmI1YzBjNTM6dmU4SmQ2VE96aWtZN09yRnZrNW84VE5yNlZjQVQ2YTRIQlhw'}}) // Call the fetch function passing the url of the API as a parameter
+    .then((resp) => resp.json())
+    .then(function(data) {
+        let result = data.result;
+        let unique_result = [];
+        let container = document.querySelector('#drinks_list'); 
+        container.innerHTML = '';  
+
+        //get unique results
+        for (let i = 0; i < result.length; i++) {
+            let drink_name = result[i].name;
+            if(unique_result.indexOf(drink_name) < 0){
+                unique_result.push(drink_name);
+            }
+        }
+
+        for (let i = 0; i < unique_result.length; i++) {
+            let option = document.createElement('option');
+            option.value = unique_result[i];
+            container.appendChild(option);
+        }
+    })
 }
 
 function toggleFav(){
@@ -149,6 +173,13 @@ function addClickEvent(){
     for (let i = 0; i < stars.length; i++) {
         stars[i].addEventListener('click', toggleFav);
     }   
+}
+
+function addInputEvent(){
+    let input = document.querySelector('.query');
+    let input_value = input.value;
+
+    dropDownAutocomplete(input_value);
 }
 
 function addClickEventLinkBAC(){
@@ -187,15 +218,22 @@ function addSubmitEventBAC(){
             modal_content.innerHTML +=
             `<p>Your blood alcohol concentration (BAC) is ${bac}</P>`;
         }
-
- 
-        
     });
 }
 //TODO: Event listener for input in searchbar delayed by 3000
 
 document.addEventListener('DOMContentLoaded', function() {
     addClickEventLinkBAC();
+
+    if(document.querySelector('.query')){        
+        let input = document.querySelector('.query');
+        input.addEventListener("input", function(){
+            setTimeout(function(){
+                addInputEvent();
+            }, 2000);
+        });
+    }
+
     if(document.querySelector('.liquor')){
         getLiquors('beer');
         addSubmitEventSearch(); 

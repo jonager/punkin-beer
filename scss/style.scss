@@ -81,6 +81,10 @@ header{
         justify-self: center;
         margin-bottom: 20px;
         
+        input::-webkit-calendar-picker-indicator {
+            display: none;
+          }
+
         input:first-child{
             
             width: 500px;

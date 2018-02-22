@@ -102,6 +102,8 @@ header {
     grid-area: search;
     justify-self: center;
     margin-bottom: 20px; }
+    .main #search input::-webkit-calendar-picker-indicator {
+      display: none; }
     .main #search input:first-child {
       width: 500px;
       height: 30px;
