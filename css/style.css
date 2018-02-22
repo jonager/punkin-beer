@@ -44,6 +44,10 @@ table {
 a {
   text-decoration: none; }
 
+.shrink-header {
+  height: 60px;
+  line-height: 56px; }
+
 body {
   width: 100%;
   font-family: 'Roboto', sans-serif;
@@ -58,7 +62,13 @@ body {
 
 header {
   grid-area: header;
-  background-color: #FF8360; }
+  background-color: #FF8360;
+  height: 100px;
+  line-height: 96px;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.3s ease-in-out; }
   header .header-cont {
     padding: 0 50px;
     display: grid;
@@ -76,8 +86,7 @@ header {
         width: 16px; }
     header .header-cont .main-nav {
       grid-area: nav-links;
-      justify-self: end;
-      line-height: 66px; }
+      justify-self: end; }
       header .header-cont .main-nav .nav-links {
         display: flex;
         flex-direction: row; }
@@ -93,7 +102,8 @@ header {
 .main {
   grid-area: main;
   justify-content: center;
-  padding: 50px 150px;
+  margin: 100px 0;
+  padding: 0 150px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
