@@ -92,5 +92,18 @@
             <div class="col-4 text-center"> <a class="copy" href="https://github.com/jonager" target="_blank">&copy; 2018 - jonager</a></div>
         </div>
     </footer>
+
+    <script>
+        let header = document.querySelector('header');
+                
+        document.addEventListener("scroll", function(){
+            if(document.documentElement.scrollTop > 100){
+                header.classList.add('shrink-header');
+                console.log('runs');
+            } else{
+                header.classList.remove('shrink-header');
+            }
+        });
+    </script>
 </body>
 </html>

@@ -171,6 +171,7 @@ header{
         }
         .card:hover {
             box-shadow: 0 8px    16px 0 rgba(60,219,211,0.5);
+            transform: translateY(-5%);
         }
     }
 }

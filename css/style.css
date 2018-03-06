@@ -171,7 +171,8 @@ header {
           box-shadow: 0 3px 6px 0 rgba(220, 0, 0, 0.7);
           color: black; }
     .main .liquor .card:hover {
-      box-shadow: 0 8px 16px 0 rgba(60, 219, 211, 0.5); }
+      box-shadow: 0 8px 16px 0 rgba(60, 219, 211, 0.5);
+      transform: translateY(-5%); }
 
 .modal {
   display: none;
