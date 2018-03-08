@@ -32,7 +32,7 @@
             <section class="description">
                 <h1>How drunk do you think you are?</h1>
                 <p>Welcome to punkin` beer, a Blood Alcohol Content(BAC) calculator, that <br> helps you
-                    determine if you are too drunk to drive <i class="material-icons disclaimer" title="Don't drink and drive! I am not responsible if you have a car accident.">info</i>.
+                    determine if you are too drunk to drive <i class="material-icons disclaimer" title="Don't drink and drive! I am not responsible if you get yourself killed.">info</i>.
                 </p>
 
             </section>
@@ -49,25 +49,24 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>BAC Calculator</h2>
             <form id="BACform">
+                <h2>BAC Calculator</h2>
                 <label for="">Weight:
                     <input type="text" name="weight">
-                </label><br>
+                </label>
                 <label for="">
                     <select name="unit">
                         <option value="lbs">Pounds</option>
                         <option value="kgs">Kilos</option>
                     </select>
-                </label>
+                </label><br><br>
                     
-
                 <label for="">Gender:
                     <select name="gender">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
-                </label><br>
+                </label><br><br>
                 
                 <label for="">Type of drinker:
                     <select name="meta_rate">
@@ -75,24 +74,22 @@
                         <option value="0.017">Frequent</option>
                         <option value="0.02">Heavy</option>
                     </select>
-                </label><br>
+                </label><br><br>
 
-                 <label for="">Hours:
-                    <input type="text" name="hour">
-                </label>
-                 <label for="">Mins:
-                    <input type="text" name="min">
-                </label><br>
+                 <label for="">Time elapse:
+                    <input type="text" name="hour" placeholder="Hours">
+                    <input type="text" name="min" placeholder="Minutes">
+                </label><br><br>
 
                 <label for="">Alcohol %:
                     <input type="text" name="percent" id="percent">
-                </label><br>
+                </label><br><br>
 
                 <label for="">Servings(oz):
                     <input type="text" name="servings">
-                </label><br>
+                </label><br><br>
 
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" class="submitBAC">
             </form>
         </div>  
     </div>

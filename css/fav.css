@@ -48,3 +48,48 @@
       .main .favs button:hover {
         box-shadow: 0 3px 6px 0 rgba(220, 0, 0, 0.7);
         color: black; }
+  .main .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 12px;
+    width: 40%;
+    /* Could be more or less, depending on screen size */ }
+    .main .modal-content .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold; }
+    .main .modal-content .close:hover,
+    .main .modal-content .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer; }
+    .main .modal-content #BACform {
+      margin-top: 15px;
+      margin-bottom: 20px;
+      font-size: 1.2em;
+      padding: 10px 25px; }
+      .main .modal-content #BACform h2 {
+        text-align: center;
+        margin-bottom: 1.4em;
+        font-size: 1.5em;
+        font-weight: bold; }
+      .main .modal-content #BACform label {
+        margin-bottom: 20px; }
+      .main .modal-content #BACform .submitBAC {
+        display: block;
+        margin: 0 auto;
+        margin-top: 1.25em;
+        width: 80%;
+        font-size: 1.4em;
+        font-weight: bold;
+        color: white;
+        background-color: #2f889a;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 0; }
+        .main .modal-content #BACform .submitBAC:hover {
+          opacity: 0.85; }

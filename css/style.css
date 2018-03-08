@@ -121,6 +121,8 @@ header {
       text-align: center;
       font-size: 1.5em;
       margin-bottom: 2em; }
+      .main .description p i {
+        color: red; }
   .main #search {
     grid-area: search;
     justify-self: center;
@@ -212,7 +214,8 @@ header {
     /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    border-radius: 12px;
+    width: 40%;
     /* Could be more or less, depending on screen size */ }
     .modal .modal-content .close {
       color: #aaa;
@@ -224,10 +227,32 @@ header {
       color: black;
       text-decoration: none;
       cursor: pointer; }
-    .modal .modal-content form {
+    .modal .modal-content #BACform {
       margin-top: 15px;
       margin-bottom: 20px;
-      display: flex; }
+      font-size: 1.2em;
+      padding: 10px 25px; }
+      .modal .modal-content #BACform h2 {
+        text-align: center;
+        margin-bottom: 1.4em;
+        font-size: 1.5em;
+        font-weight: bold; }
+      .modal .modal-content #BACform label {
+        margin-bottom: 20px; }
+      .modal .modal-content #BACform .submitBAC {
+        display: block;
+        margin: 0 auto;
+        margin-top: 1.25em;
+        width: 80%;
+        font-size: 1.4em;
+        font-weight: bold;
+        color: white;
+        background-color: #2f889a;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 0; }
+        .modal .modal-content #BACform .submitBAC:hover {
+          opacity: 0.85; }
 
 footer {
   grid-area: footer;
