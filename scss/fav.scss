@@ -48,9 +48,9 @@
                     text-align: left;
                 }
             }
-        }
-        .card:hover {
-            box-shadow: 0 8px    16px 0 rgba(60,219,211,0.5);
+            &:hover{
+                box-shadow: 0 8px    16px 0 rgba(60,219,211,0.5);
+            }
         }
 
         button{
@@ -61,10 +61,10 @@
             border: none;
             border-radius: 5px;
             margin-bottom: 5px;
-        }
-        button:hover{
-            box-shadow: 0 3px    6px 0 rgba(220,0,0,0.7);
-            color: black;
+            &:hover{
+                box-shadow: 0 3px 6px 0 rgba(220,0,0,0.7);
+                color: black;
+            }
         }
     }
 }

@@ -29,6 +29,13 @@
     </header>
 
     <main class="main">
+            <section class="description">
+                <h1>How drunk do you think you are?</h1>
+                <p>Welcome to punkin` beer, a Blood Alcohol Content(BAC) calculator, that <br> helps you
+                    determine if you are too drunk to drive <i class="material-icons disclaimer" title="Don't drink and drive! I am not responsible if you have a car accident.">info</i>.
+                </p>
+
+            </section>
             <form id="search">
                 <input list = "drinks_list" name="search" class="query" type="text" placeholder="Choose your poison ...">
                 <datalist id="drinks_list">
@@ -96,17 +103,19 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/tippy.js@2.2.3/dist/tippy.all.min.js"></script>
     <script>
         let header = document.querySelector('header');
                 
         document.addEventListener("scroll", function(){
             if(document.documentElement.scrollTop > 100){
                 header.classList.add('shrink-header');
-                console.log('runs');
             } else{
                 header.classList.remove('shrink-header');
             }
         });
+
+        tippy('.disclaimer')
     </script>
 
 </body>

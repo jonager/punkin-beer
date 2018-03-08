@@ -95,9 +95,9 @@ header {
           margin-left: 30px;
           color: black;
           font-size: 1.2em; }
-        header .header-cont .main-nav .nav-links li:hover {
-          color: white;
-          border-bottom: #7DCE82 4px inset; }
+          header .header-cont .main-nav .nav-links li:hover {
+            color: white;
+            border-bottom: #7DCE82 4px inset; }
 
 .main {
   grid-area: main;
@@ -105,13 +105,26 @@ header {
   margin: 100px 0;
   padding: 0 150px;
   display: grid;
+  grid-gap: 15px;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas: "search" "liquor"; }
+  grid-template-rows: auto;
+  grid-template-areas: "description" "search" "liquor"; }
+  .main .description {
+    grid-area: description;
+    justify-self: center; }
+    .main .description h1 {
+      font-size: 3em;
+      font-weight: bold;
+      margin-bottom: 0.35em;
+      text-align: center; }
+    .main .description p {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 2em; }
   .main #search {
     grid-area: search;
     justify-self: center;
-    margin-bottom: 20px; }
+    margin-bottom: 40px; }
     .main #search input::-webkit-calendar-picker-indicator {
       display: none; }
     .main #search input:first-child {
@@ -167,12 +180,12 @@ header {
           font-weight: 600;
           border: none;
           border-radius: 5px; }
-        .main .liquor .card .info button:hover {
-          box-shadow: 0 3px 6px 0 rgba(220, 0, 0, 0.7);
-          color: black; }
-    .main .liquor .card:hover {
-      box-shadow: 0 8px 16px 0 rgba(60, 219, 211, 0.5);
-      transform: translateY(-5%); }
+          .main .liquor .card .info button:hover {
+            box-shadow: 0 3px 6px 0 rgba(220, 0, 0, 0.7);
+            color: black; }
+      .main .liquor .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(60, 219, 211, 0.5);
+        transform: translateY(-5%); }
 
 .modal {
   display: none;
