@@ -232,6 +232,8 @@ header {
       margin-bottom: 20px;
       font-size: 1.2em;
       padding: 10px 25px; }
+      .modal .modal-content #BACform input, .modal .modal-content #BACform select {
+        height: 1.5em; }
       .modal .modal-content #BACform h2 {
         text-align: center;
         margin-bottom: 1.4em;
@@ -244,13 +246,13 @@ header {
         margin: 0 auto;
         margin-top: 1.25em;
         width: 80%;
+        height: 2em;
         font-size: 1.4em;
         font-weight: bold;
         color: white;
         background-color: #2f889a;
         border: none;
-        border-radius: 5px;
-        padding: 8px 0; }
+        border-radius: 5px; }
         .modal .modal-content #BACform .submitBAC:hover {
           opacity: 0.85; }
 
