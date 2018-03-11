@@ -52,11 +52,7 @@ function displayModalLink(){
 }
 
 function bacCalculator(weight, weight_unit, gender, perc_alch, serving_ounce, met_rate, hours, mins){
-    // Todo: take time into account for calculating bac.
-    console.log(hours)
-    console.log(mins)
     let total_time = parseInt(hours)  + mins/60;
-    console.log(total_time);
     let weight_kilo = (weight_unit == 'lbs') ? weight / 2.2046 : weight;
     let body_water =  ((gender == 'male') ? weight_kilo*.58 : weight_kilo*.49)*1000;
     let grams_alco_per_water = (29.57*.79)/body_water;
@@ -89,7 +85,7 @@ function getLiquors(query){
             for (let i = 0; i < result.length; i++) {
                 container.innerHTML +=
                 `<div class="card">
-                    <img class="beer-img" src="${result[i].image_url}" alt="Avatar">
+                    <img style="width:180px;height:180px;" class="beer-img" src="${result[i].image_url}" alt="Avatar">
                     <div class="info">
                         <i class="material-icons star" id="${result[i].id}">star_border</i>
                         <h4>${result[i].name} (${result[i].alcohol_content/100}%)</h4> 
@@ -215,35 +211,38 @@ function addSubmitEventBAC(){
         let hours= e.target.hour.value;
         let mins = e.target.min.value;
         let percent = e.target.percent.value;
-        let servings = e.target.servings.value;        // getLiquors(e.target.search.value);
+        let servings = e.target.servings.value;    
         let bac = bacCalculator(weight, weight_unit, gender, percent , servings, meta_rate, hours, mins);
         if(bac){
             let modal_content = document.querySelector('.modal-content');
             modal_content.innerHTML +=
-            `<p>Your blood alcohol concentration (BAC) is ${bac}</P>`;
+            `<p style="color: red;">Your blood alcohol concentration (BAC) is ${bac}</P>`;
         }
     });
 }
-//TODO: Event listener for input in searchbar delayed by 3000
 
 document.addEventListener('DOMContentLoaded', function() {
     addClickEventLinkBAC();
 
     if(document.querySelector('.query')){        
         let input = document.querySelector('.query');
-        input.addEventListener("input", function(){
-            setTimeout(function(){
+        let timeout = null;
+        input.addEventListener("keyup", function(){
+            if (timeout !== null) {
+                clearTimeout(timeout);
+            }
+            timeout = setTimeout(function(){
                 addInputEvent();
-            }, 2000);
+            }, 1000);
         });
     }
 
     if(document.querySelector('.liquor')){
         getLiquors('beer');
-        addSubmitEventSearch(); 
+        addSubmitEventSearch(); ``
         addSubmitEventBAC();
     }
-
+ 
     if(document.querySelector('.favs')){
         displayFavs();
     }
